@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#1f1a16">
+<meta name="robots" content="noindex, nofollow">
+<title>Refugio Casablanca · Recorrido 3D</title>
+<meta name="description" content="Recorrido virtual 3D de la cabaña Refugio Casablanca, con tinaja y piscina, en el valle de Casablanca, Chile.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c8642e'/%3E%3Cpath d='M12 34 32 15l20 19h-6v15H18V34z' fill='%23fff'/%3E%3C/svg%3E">
+  <script type="module" crossorigin src="./assets/index-BLI2-lm0.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-mTFxJr8x.css">
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<header id="top">
+  <div class="brand"><span class="logo"></span><span data-i18n="title">Refugio Casablanca</span></div>
+  <div class="tools">
+    <button id="bTime" class="icon-btn" aria-label="Día / Atardecer"></button>
+    <label class="lang" aria-label="Idioma"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 9h-3a15.7 15.7 0 0 0-1.4-6A8 8 0 0 1 18.9 11zM12 4c.8 1 1.7 3.2 2 7H10c.3-3.8 1.2-6 2-7zM4.1 13h3a15.7 15.7 0 0 0 1.4 6A8 8 0 0 1 4.1 13zm3-2h-3a8 8 0 0 1 4.4-6 15.7 15.7 0 0 0-1.4 6zM12 20c-.8-1-1.7-3.2-2-7h4c-.3 3.8-1.2 6-2 7zm3.5-1a15.7 15.7 0 0 0 1.4-6h3a8 8 0 0 1-4.4 6z"/></svg><select id="lang"></select></label>
+    <button id="bInfo" class="icon-btn" aria-label="Información"><svg viewBox="0 0 24 24"><path d="M11 17h2v-6h-2v6zm1-15a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 8a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4z"/></svg></button>
+  </div>
+</header>
+
+<div id="hint" class="hint" hidden></div>
+
+<div id="stickWrap" hidden><div id="stick"><div id="knob"></div></div></div>
+
+<section id="card">
+  <div class="step-row"><span id="stepTxt"></span><span id="dots"></span></div>
+  <h2 id="place"></h2>
+  <p id="desc"></p>
+  <div class="nav-row">
+    <button id="prev" class="btn ghost"><svg viewBox="0 0 24 24"><path d="M15.4 5.4 14 4l-8 8 8 8 1.4-1.4L8.8 12z"/></svg><span data-i18n="prev">Anterior</span></button>
+    <button id="next" class="btn primary"><span data-i18n="next">Siguiente</span><svg viewBox="0 0 24 24"><path d="m8.6 5.4 1.4-1.4 8 8-8 8-1.4-1.4 6.6-6.6z"/></svg></button>
+  </div>
+  <div class="tabs">
+    <button id="tSpaces"><svg viewBox="0 0 24 24"><path d="M3 5h4v4H3zm7 0h11v4H10zM3 10h4v4H3zm7 0h11v4H10zM3 15h4v4H3zm7 0h11v4H10z"/></svg><span data-i18n="tabSpaces">Espacios</span></button>
+    <button id="tPhotos"><svg viewBox="0 0 24 24"><path d="M9 4 7.2 6H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-3.2L15 4H9zm3 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg><span data-i18n="tabPhotos">Fotos reales</span></button>
+    <button id="tWalk"><svg viewBox="0 0 24 24"><path d="M13.5 5.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM9.8 8.9 7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3A7.3 7.3 0 0 0 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7z"/></svg><span data-i18n="tabWalk">Caminar</span></button>
+    <button id="tAuto"><svg viewBox="0 0 24 24" id="autoIcon"><path d="M8 5v14l11-7z"/></svg><span id="autoTxt" data-i18n="tabAuto">Automático</span></button>
+  </div>
+  <div id="end" hidden>
+    <p class="end-title" data-i18n="tourEnd"></p>
+    <a id="book" class="btn primary wide" target="_blank" rel="noopener" href="https://www.airbnb.mx/rooms/1672154212144506888"><span data-i18n="bookCta"></span></a>
+    <div class="nav-row">
+      <button id="restart" class="btn ghost"><span data-i18n="restart"></span></button>
+      <button id="endWalk" class="btn ghost"><span data-i18n="walk"></span></button>
+    </div>
+  </div>
+</section>
+
+<section id="freeBar" hidden>
+  <div><strong id="freePlace"></strong></div>
+  <button id="freeBack" class="btn ghost small" data-i18n="walkBack">Volver al recorrido</button>
+</section>
+
+<div id="modal" class="modal" hidden>
+  <div class="sheet">
+    <div class="sheet-head"><h3 id="mTitle"></h3><button id="mClose" class="icon-btn dark" aria-label="Cerrar"><svg viewBox="0 0 24 24"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19l5.6-5.6 5.6 5.6 1.4-1.4-5.6-5.6z"/></svg></button></div>
+    <div id="mBody" class="sheet-body"></div>
+  </div>
+</div>
+
+<div id="photos" class="photos" hidden>
+  <button id="pClose" class="icon-btn" aria-label="Cerrar"><svg viewBox="0 0 24 24"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19l5.6-5.6 5.6 5.6 1.4-1.4-5.6-5.6z"/></svg></button>
+  <div class="photo-stage"><button id="pPrev" class="arrow" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M15.4 5.4 14 4l-8 8 8 8 1.4-1.4L8.8 12z"/></svg></button><img id="pImg" alt=""><button id="pNext" class="arrow" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="m8.6 5.4 1.4-1.4 8 8-8 8-1.4-1.4 6.6-6.6z"/></svg></button></div>
+  <p id="pCap"></p>
+</div>
+
+<div id="welcome" class="welcome">
+  <div class="welcome-inner">
+    <div class="logo big"></div>
+    <h1 data-i18n="title">Refugio Casablanca</h1>
+    <p class="tag" data-i18n="tagline"></p>
+    <p class="sub" data-i18n="welcomeSub"></p>
+    <div id="langPills" class="pills"></div>
+    <button id="start" class="btn primary huge"><span data-i18n="start">Comenzar recorrido</span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+    <p class="small" id="loadingTxt" data-i18n="loading"></p>
+    <p class="small dim" data-i18n="approx"></p>
+  </div>
+</div>
+
+</body>
+</html>
