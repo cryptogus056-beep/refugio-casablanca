@@ -8,8 +8,8 @@
 <title>Refugio Casablanca · Recorrido 3D</title>
 <meta name="description" content="Recorrido virtual 3D de la cabaña Refugio Casablanca, con tinaja y piscina, en el valle de Casablanca, Chile.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c8642e'/%3E%3Cpath d='M12 34 32 15l20 19h-6v15H18V34z' fill='%23fff'/%3E%3C/svg%3E">
-  <script type="module" crossorigin src="./assets/index-BLI2-lm0.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-mTFxJr8x.css">
+  <script type="module" crossorigin src="./assets/index-CpNIwfbs.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DOEghCXK.css">
 </head>
 <body>
 <canvas id="c"></canvas>
@@ -19,6 +19,7 @@
   <div class="tools">
     <button id="bTime" class="icon-btn" aria-label="Día / Atardecer"></button>
     <label class="lang" aria-label="Idioma"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 9h-3a15.7 15.7 0 0 0-1.4-6A8 8 0 0 1 18.9 11zM12 4c.8 1 1.7 3.2 2 7H10c.3-3.8 1.2-6 2-7zM4.1 13h3a15.7 15.7 0 0 0 1.4 6A8 8 0 0 1 4.1 13zm3-2h-3a8 8 0 0 1 4.4-6 15.7 15.7 0 0 0-1.4 6zM12 20c-.8-1-1.7-3.2-2-7h4c-.3 3.8-1.2 6-2 7zm3.5-1a15.7 15.7 0 0 0 1.4-6h3a8 8 0 0 1-4.4 6z"/></svg><select id="lang"></select></label>
+    <button id="bHelp" class="icon-btn" aria-label="Ayuda"><svg viewBox="0 0 24 24"><path d="M11 18h2v-2h-2v2zm1-16a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-14a4 4 0 0 0-4 4h2a2 2 0 1 1 4 0c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5a4 4 0 0 0-4-4z"/></svg></button>
     <button id="bInfo" class="icon-btn" aria-label="Información"><svg viewBox="0 0 24 24"><path d="M11 17h2v-6h-2v6zm1-15a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 8a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4z"/></svg></button>
   </div>
 </header>
@@ -63,6 +64,22 @@
   </div>
 </div>
 
+<div id="guide" class="guide" hidden role="dialog" aria-modal="true">
+  <div class="guide-card">
+    <div id="gIll" class="guide-ill"></div>
+    <div class="guide-body">
+      <div id="gStep" class="g-step"></div>
+      <h3 id="gTitle"></h3>
+      <div id="gBody"></div>
+    </div>
+    <div class="guide-foot">
+      <button id="gSkip" class="skip"></button>
+      <button id="gBack" class="btn ghost"></button>
+      <button id="gNext" class="btn primary"></button>
+    </div>
+  </div>
+</div>
+
 <div id="photos" class="photos" hidden>
   <button id="pClose" class="icon-btn" aria-label="Cerrar"><svg viewBox="0 0 24 24"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19l5.6-5.6 5.6 5.6 1.4-1.4-5.6-5.6z"/></svg></button>
   <div class="photo-stage"><button id="pPrev" class="arrow" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M15.4 5.4 14 4l-8 8 8 8 1.4-1.4L8.8 12z"/></svg></button><img id="pImg" alt=""><button id="pNext" class="arrow" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="m8.6 5.4 1.4-1.4 8 8-8 8-1.4-1.4 6.6-6.6z"/></svg></button></div>
@@ -77,6 +94,7 @@
     <p class="sub" data-i18n="welcomeSub"></p>
     <div id="langPills" class="pills"></div>
     <button id="start" class="btn primary huge"><span data-i18n="start">Comenzar recorrido</span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+    <button id="howto" class="linkbtn" data-i18n="guide.link">¿Cómo se usa?</button>
     <p class="small" id="loadingTxt" data-i18n="loading"></p>
     <p class="small dim" data-i18n="approx"></p>
   </div>
