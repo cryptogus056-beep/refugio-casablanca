@@ -1,0 +1,41 @@
+.welcome {
+  background: #f7f3eb;
+  color: #28281f;
+  text-align: left;
+  grid-template-columns: 1fr 1fr;
+  padding: 0;
+  overflow: auto;
+}
+.welcome::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: url("../fotos/piscina-1.jpg") center / cover;
+}
+.welcome-inner {
+  align-items: flex-start;
+  width: min(100%, 34rem);
+  max-width: none;
+  padding: clamp(1.5rem, 5vw, 4.5rem);
+}
+.location { font-size: .81rem; font-weight: 700; color: #645442; letter-spacing: .06em; }
+.welcome h1 { font: normal clamp(2.7rem, 5.5vw, 5.6rem)/.98 Georgia, serif; margin: .26em 0; }
+.welcome .sub { color: #504a42; line-height: 1.5; max-width: 31ch; }
+.welcome .pills { gap: 5px; margin-bottom: 1.25rem; justify-content: flex-start; }
+.welcome .pills button { font-size: .85rem; color: #39382c; border: 1px solid #a79b8a; padding: 7px 14px; }
+.welcome .pills .on { color: white; background: #424934; border-color: #424934; }
+.welcome .btn.huge, .photo-link { width: 100%; max-width: 380px; min-height: 50px; border-radius: 10px; }
+.welcome .btn.huge { background: #a44e21; font-size: 1.02rem; box-shadow: none; flex: none; }
+.photo-link { display: grid; place-items: center; border: 1px solid #837762; margin-top: 9px; color: inherit; font-weight: 650; text-decoration: none; }
+.welcome #howto, .welcome .small { color: #584d41; }
+.welcome #howto { padding-left: 0; }
+.welcome .small { line-height: 1.4; }
+:focus-visible { outline: 3px solid #2681c2; outline-offset: 2px; }
+@media (max-width: 650px) {
+  .welcome { display: flex; flex-direction: column; align-items: stretch; }
+  .welcome::after { order: -1; flex: 0 0 clamp(105px, 26svh, 220px); background-position: center 45%; }
+  .welcome-inner { padding: 1.4rem; margin: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .welcome, .sheet, .hint, .hint::before { animation: none; transition: none; }
+}
