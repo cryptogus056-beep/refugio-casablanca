@@ -63,7 +63,7 @@ async function openTour(action) {
   el('start').disabled = el('howto').disabled = true;
   updateLanding();
   try {
-    await import('./index-CpNIwfbs.js');
+    await import('./recorrido-034bde8a.js');
     // The renderer owns the controls once initialization finishes.
     el('lang').value = language;
     el('lang').dispatchEvent(new Event('change'));
